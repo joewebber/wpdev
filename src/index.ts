@@ -1,29 +1,39 @@
+// Import the oclif command library
 import {Command, flags} from '@oclif/command'
 
 class Wpdev extends Command {
-  static description = 'describe the command here'
 
+  /**
+   * Description of the command
+   */
+  static description = 'Automated Wordpress development setup'
+
+  /**
+   * Flags
+   */
   static flags = {
-    // add --version flag to show CLI version
+
+    // Version flag
     version: flags.version({char: 'v'}),
+
+    // Help flag
     help: flags.help({char: 'h'}),
-    // flag with a value (-n, --name=VALUE)
-    name: flags.string({char: 'n', description: 'name to print'}),
-    // flag with no value (-f, --force)
-    force: flags.boolean({char: 'f'}),
+
   }
 
-  static args = [{name: 'file'}]
-
+  /**
+   * Run the program
+   */
   async run() {
-    const {args, flags} = this.parse(Wpdev)
 
-    const name = flags.name || 'world'
-    this.log(`hello ${name} from ./src/index.ts`)
-    if (args.file && flags.force) {
-      this.log(`you input --force and --file: ${args.file}`)
-    }
+    // Parse the flags
+    const {flags} = this.parse(Wpdev)
+
+    
+
   }
+
 }
 
+// Export the class
 export = Wpdev
